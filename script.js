@@ -80,7 +80,6 @@ const loadArticles = async (cb ) => {
 
 const renderArticle = (array) => {
     const data = array.data;
-    console.log(data)
     const cartWrapper = document.createElement('ul');
     cartWrapper.className = 'news-wrapper';
     let numImg = 0;
@@ -125,7 +124,6 @@ const renderPagination = async () => {
          const result = await fetch(url);
          const array = await result.json();
          const maxPage = array.meta.pagination.pages;
-        console.log(maxPage)
 
         const urlParam = new URLSearchParams(window.location.search);
         let firstPage = Number(urlParam.get('page')) ;
@@ -137,7 +135,6 @@ const renderPagination = async () => {
 
         }
         // const  firstPage = Number(window.location.search.substring(6)) -1 ;
-        // console.log(firstPage)
         containerPag.insertAdjacentHTML(
             'beforeend',
             `<a href="blog.html?page = ${firstPage - 1}" class="btn-arrow-left btn-arrow">
